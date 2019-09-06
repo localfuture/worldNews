@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600&display=swap" rel="stylesheet">
+    <title><%=title%> | <%=category%></title>
+    <style>
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        p,
+        label,
+        select,
+        option {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+        }
+
+        #headline {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 1.5rem;
+        }
+
+        #description {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: .8rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- World news Search -->
+    <% if (data == null){%>
+    <form action="/news" method="POST">
+        <div class="container my-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <h1>Welcome to World News</h1>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-sm-3 col-md-3">
+                    <label>Country</label>
+                    <select name="country" class="form-control">
+                            <option selected value="in">India</option>
+                            <option value="us">America</option>
+                            <option value="ar">Argentina</option>
+                            <option value="au">Australia</option>
+                            <option value="at">Austria</option>
+                            <option value="be">Belgium</option>
+                            <option value="br">Brazil</option>
+                            <option value="bg">Bulgaria</option>
+                            <option value="ca">Canada</option>
+                            <option value="cn">China</option>
+                            <option value="co">Colombia</option>
+                            <option value="cu">Cuba</option>
+                            <option value="cz">Czech Republic</option>
+                            <option value="eg">Eqypt</option>
+                            <option value="fr">France</option>
+                            <option value="de">Germany</option>
+                            <option value="gr">Greece</option>
+                            <option value="hk">Hong Kong</option>
+                            <option value="hu">Hungary</option>
+                            <option value="id">Indonesia</option>
+                            <option value="ie">Ireland</option>
+                            <option value="il">Israel</option>
+                            <option value="it">Italy</option>
+                            <option value="jp">Japan</option>
+                            <option value="lv">Latvia</option>
+                            <option value="lt">Lithuania</option>
+                            <option value="my">Malaysia</option>
+                            <option value="mx">Mexico</option>
+                            <option value="ma">Morocco</option>
+                            <option value="nl">Netherlands</option>
+                            <option value="nz">New Zealand</option>
+                            <option value="ng">Nigeria</option>
+                            <option value="no">Norway</option>
+                            <option value="ph">Philippines</option>
+                            <option value="pl">Poland</option>
+                            <option value="pt">Portugal</option>
+                            <option value="ro">Romania</option>
+                            <option value="ru">Russia</option>
+                            <option value="sa">Saudi Arabia</option>
+                            <option value="rs">Serbia</option>
+                            <option value="sg">Singapore</option>
+                            <option value="sk">Slovakia</option>
+                            <option value="si">Slovenia</option>
+                            <option value="za">South Africa</option>
+                            <option value="kr">South Korea</option>
+                            <option value="se">Sweden</option>
+                            <option value="ch">Switzerland</option>
+                            <option value="tw">Taiwan</option>
+                            <option value="th">Thailand</option>
+                            <option value="tr">Turkey</option>
+                            <option value="ae">UAE</option>
+                            <option value="ua">Ukraine</option>
+                            <option value="gb">United Kingdom</option>
+                            <option value="ve">Venuzuela</option>
+                    </select>
+                </div>
+                <div class="col-sm-3 col-md-3">
+                    <label>Category</label>
+                    <select name="category" class="form-control">
+                        <option selected value="general">General</option>
+                        <option value="business">Business</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="health">Health</option>
+                        <option value="science">Science</option>
+                        <option value="sports">Sports</option>
+                        <option value="technology">Technology</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row justify-content-center my-3">
+                <button class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+    <%}%>
+    <!-- news Headlines -->
+    <% if (data != null){%>
+    <form action="/news" method="POST">
+        <div class="container my-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <h1><%=title%> | <%=category%></h1>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-sm-3 col-md-3">
+                    <label>Country</label>
+                    <select name="country" class="form-control">
+                        <option selected value="in">India</option>
+                        <option value="us">America</option>
+                        <option value="cn">China</option>
+                        <option value="fr">France</option>
+                        <option value="de">Germany</option>
+                        <option value="il">Israel</option>
+                        <option value="it">Italy</option>
+                        <option value="jp">Japan</option>
+                        <option value="ru">Russia</option>
+                        <option value="sa">Saudi Arabia</option>
+                        <option value="ae">UAE</option>
+                        <option value="gb">United Kingdom</option>
+                    </select>
+                </div>
+                <div class="col-sm-3 col-md-3">
+                    <label>Category</label>
+                    <select name="category" class="form-control">
+                            <option selected value="general">General</option>
+                            <option value="business">Business</option>
+                            <option value="entertainment">Entertainment</option>
+                            <option value="health">Health</option>
+                            <option value="science">Science</option>
+                            <option value="sports">Sports</option>
+                            <option value="technology">Technology</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row justify-content-center my-3">
+                <button class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+    <% for(var i =0; i< data.articles.length; i++){%>
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h1 id="headline"><%= data.articles[i].title %></h1>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <img src="<%= data.articles[i].urlToImage%>" class="img-fluid">
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <a href="<%= data.articles[i].url %>"><%= data.articles[i].url %></a>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <p id="description"><%= data.articles[i].description %></p>
+            </div>
+        </div>
+    </div>
+    <%}%>
+    <form action="/news" method="POST">
+        <div class="container my-5">
+            <div class="row justify-content-center">
+                <div class="col-sm-3 col-md-3">
+                    <label>Country</label>
+                    <select name="country" class="form-control">
+                            <option selected value="in">India</option>
+                            <option value="us">America</option>
+                            <option value="cn">China</option>
+                            <option value="fr">France</option>
+                            <option value="de">Germany</option>
+                            <option value="il">Israel</option>
+                            <option value="it">Italy</option>
+                            <option value="jp">Japan</option>
+                            <option value="ru">Russia</option>
+                            <option value="sa">Saudi Arabia</option>
+                            <option value="ae">UAE</option>
+                            <option value="gb">United Kingdom</option>
+                    </select>
+                </div>
+                <div class="col-sm-3 col-md-3">
+                    <label>Category</label>
+                    <select name="category" class="form-control">
+                        <option selected value="general">General</option>
+                        <option value="business">Business</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="health">Health</option>
+                        <option value="science">Science</option>
+                        <option value="sports">Sports</option>
+                        <option value="technology">Technology</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row justify-content-center my-3">
+                <button class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+    <%}%>
+
+
+    <!-- News Headlines -->
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
